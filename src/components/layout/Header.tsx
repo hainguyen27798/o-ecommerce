@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 
-import HeaderNav from '@/components/HeaderNav';
+import HeaderNav from '@/components/layout/HeaderNav';
 
 export default function Header() {
     return (

@@ -1,7 +1,12 @@
 import './globals.css';
 
+import { AntdRegistry } from '@ant-design/nextjs-registry';
+import { ConfigProvider } from 'antd';
 import type { Metadata } from 'next';
 import React from 'react';
+
+import { MainLayout } from '@/components/layout';
+import { theme } from '@/configs';
 
 export const metadata: Metadata = {
     title: 'Open Ecommerce',
@@ -29,7 +34,13 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body suppressHydrationWarning>{children}</body>
+            <body suppressHydrationWarning>
+                <AntdRegistry>
+                    <ConfigProvider theme={theme}>
+                        <MainLayout>{children}</MainLayout>
+                    </ConfigProvider>
+                </AntdRegistry>
+            </body>
         </html>
     );
 }
